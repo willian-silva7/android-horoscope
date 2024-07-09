@@ -18,6 +18,8 @@ class HoroscopeProvider @Inject constructor() {
             Sagittarius,
             Capricorn,
             Aquarius,
+            Pisces,
+            Aquarius,
             Pisces
         )
     }

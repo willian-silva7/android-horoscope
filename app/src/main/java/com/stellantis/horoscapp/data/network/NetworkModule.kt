@@ -1,6 +1,8 @@
 package com.stellantis.horoscapp.data.network
 
+import com.stellantis.horoscapp.BuildConfig.BASE_URL
 import com.stellantis.horoscapp.data.RepositoryImpl
+import com.stellantis.horoscapp.data.core.interceptors.AuthInterceptor
 import com.stellantis.horoscapp.domain.Repository
 import dagger.Module
 import dagger.Provides
@@ -57,12 +59,24 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(): Retrofit {
+    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
 
         return Retrofit.Builder()
-            .baseUrl("https://newastro.vercel.app/")
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
-            .client(httpClient)
+            .client(okHttpClient)
+            .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideOhHttpClient(authInterceptor: AuthInterceptor): OkHttpClient {
+        val interceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+
+        return OkHttpClient
+            .Builder()
+            .addInterceptor(interceptor)
+            .addInterceptor(authInterceptor)
             .build()
     }
 
