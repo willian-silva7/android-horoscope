@@ -48,7 +48,9 @@ android {
 dependencies {
 
     val navVersion = "2.7.7"
-    val hiltVersion = "2.45"
+    val hiltVersion = "2.48"
+    val retrofitVersion = "2.9.0"
+    val okhttp3Version = "4.9.1"
 
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.7.0")
@@ -65,4 +67,12 @@ dependencies {
     // Dagger Hilt core dependency
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     kapt("com.google.dagger:hilt-compiler:$hiltVersion")
+
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion") // Versão mais recente do Retrofit
+    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion") // Converter para Gson
+
+    // Interceptor Http
+    implementation("com.squareup.okhttp3:logging-interceptor:$okhttp3Version") // Interceptor de log para depuração (opcional)
+    implementation("com.squareup.okhttp3:okhttp:$okhttp3Version")
 }
