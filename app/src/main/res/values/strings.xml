@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">HoroscApp</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!--bottom bar-->
     <string name="horoscope">Horoscope</string>
@@ -22,5 +20,7 @@
     <string name="aquarius">Aquarius</string>
     <string name="pisces">Pisces</string>
     <string name="ophiuchus">Ophiuchus</string>
-    <string name="lorem">asdsadasdas dasdasdsa dasdadad ashdjsakjdgadyugdasadsadasdadsdasdadsadas asdasdasdasdasdasjdha sudh auidhs pasd paoisdphoihausjhd asokd laskjdlkasm KLAS ~DLKJ ALSJ ~j~j~çlj </string> <!-- Serpentário -->
+
+    <!--    // Lucky Fragment-->
+    <string name="share">Lucky</string> <!-- Serpentário -->
 </resources>
