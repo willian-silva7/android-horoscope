@@ -14,8 +14,10 @@ import androidx.core.animation.doOnEnd
 import androidx.core.view.isVisible
 import com.stellantis.horoscapp.R
 import com.stellantis.horoscapp.databinding.FragmentLuckBinding
+import com.stellantis.horoscapp.ui.providers.RandomCardProvider
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Random
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class LuckFragment : Fragment() {
@@ -23,13 +25,31 @@ class LuckFragment : Fragment() {
     private var _binding: FragmentLuckBinding? = null
     private val binding get() = _binding!!
 
+    @Inject
+    lateinit var randomCardProvider: RandomCardProvider
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initUI()
     }
 
     private fun initUI() {
+        preparePredction()
         initListeners()
+    }
+
+    private fun preparePredction() {
+        val currentLuck = randomCardProvider.getLucky()
+        currentLuck?.let {luck ->
+            val currentPrediction = getString(luck.text)
+            binding.tvLucky.text = getString(luck.text)
+            binding.ivLuckyCard.setImageResource(luck.image)
+            binding.tvShare.setOnClickListener{ shareResult(currentPrediction)}
+        }
+    }
+
+    private fun shareResult(string: String) {
+
     }
 
     private fun initListeners() {
