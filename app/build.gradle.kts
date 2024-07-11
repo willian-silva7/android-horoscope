@@ -60,6 +60,7 @@ dependencies {
     val hiltVersion = "2.48"
     val retrofitVersion = "2.9.0"
     val okhttp3Version = "4.9.1"
+    val cameraVersion = "1.2.3"
 
     //nav component
     implementation ("androidx.navigation:navigation-fragment-ktx:$navVersion")
@@ -76,6 +77,13 @@ dependencies {
     // Interceptor Http
     implementation("com.squareup.okhttp3:logging-interceptor:$okhttp3Version") // Interceptor de log para depuração (opcional)
     implementation("com.squareup.okhttp3:okhttp:$okhttp3Version")
+
+    //Camera X
+    implementation ("androidx.camera:camera-core:${cameraVersion}")
+    implementation ("androidx.camera:camera-camera2:${cameraVersion}")
+    implementation ("androidx.camera:camera-lifecycle:${cameraVersion}")
+    implementation ("androidx.camera:camera-view:${cameraVersion}")
+    implementation ("androidx.camera:camera-extensions:${cameraVersion}")
 
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.7.0")
