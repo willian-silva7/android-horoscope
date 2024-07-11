@@ -9,7 +9,8 @@ data class PredictionResponse(
     @SerializedName("sign") val sign: String
 ) {
     fun toDomain(): PredictionModel? {
-        return PredictionModel(horoscope = horoscope,
+        return PredictionModel(
+            horoscope = horoscope,
             sign = sign)
     }
 }
