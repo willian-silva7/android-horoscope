@@ -113,7 +113,7 @@ class LuckFragment : Fragment() {
             }
 
             override fun onAnimationEnd(animation: Animation?) {
-                binding.preview.isVisible = false
+                binding.reverse.isVisible = false
                 showPremonitionView()
             }
 
